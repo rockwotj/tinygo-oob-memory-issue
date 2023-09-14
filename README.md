@@ -20,29 +20,69 @@ Error: failed to run main module `parse-2-asyncify.wasm`
 Caused by:
     0: failed to invoke command default
     1: error while executing at wasm backtrace:
-           0: 0x1e6b - <unknown>!runtime._panic
+           0: 0x1e6b - runtime.abort
+                           at /tinygo/src/runtime/runtime_tinygowasm.go:70:6                 - runtime._panic
+                           at /tinygo/src/runtime/panic.go:52:7
            1: 0x4645c - <unknown>!(*encoding/json.decodeState).literalStore
-           2: 0x40f94 - <unknown>!(*encoding/json.decodeState).value
-           3: 0x1a902 - <unknown>!encoding/json.Unmarshal
-           4: 0x43506 - <unknown>!interface:{UnmarshalJSON:func:{slice:basic:uint8}{named:error}}.UnmarshalJSON$invoke
+           2: 0x40f94 - (reflect.Value).Cap
+                           at /usr/local/go/src/encoding/json/decode.go:388:28              - (*encoding/json.decodeState).readIndex
+                           at /usr/local/go/src/encoding/json/decode.go:545:17              - (*encoding/json.decodeState).value
+                           at /usr/local/go/src/encoding/json/decode.go:388:53
+           3: 0x1a902 - (*encoding/json.decodeState).unmarshal
+                           at /usr/local/go/src/encoding/json/decode.go:181:16              - encoding/json.Unmarshal
+                           at /usr/local/go/src/encoding/json/decode.go:108:20
+           4: 0x43506 - (*omb-wasm/avro.Node).UnmarshalJSON
+                           at /home/rockwood/Workspace/tinygo-oob-memory-issue/avro/node.go:160:27              - (Go interface method)
+                           at <Go interface method>
            5: 0x484a2 - <unknown>!(*encoding/json.decodeState).object
-           6: 0x4102e - <unknown>!(*encoding/json.decodeState).value
-           7: 0x40cf2 - <unknown>!(*encoding/json.decodeState).value
-           8: 0x1a902 - <unknown>!encoding/json.Unmarshal
-           9: 0x435e0 - <unknown>!interface:{UnmarshalJSON:func:{slice:basic:uint8}{named:error}}.UnmarshalJSON$invoke
+           6: 0x4102e - (reflect.Value).Cap
+                           at /usr/local/go/src/encoding/json/decode.go:374:22              - (*encoding/json.decodeState).readIndex
+                           at /usr/local/go/src/encoding/json/decode.go:545:17              - (*encoding/json.decodeState).value
+                           at /usr/local/go/src/encoding/json/decode.go:388:53
+           7: 0x40cf2 - (reflect.Value).Kind
+                           at /usr/local/go/src/encoding/json/decode.go:555:21              - (*encoding/json.decodeState).array
+                           at /usr/local/go/src/encoding/json/decode.go:544:12              - (*encoding/json.decodeState).value
+                           at /usr/local/go/src/encoding/json/decode.go:364:21
+           8: 0x1a902 - (*encoding/json.decodeState).unmarshal
+                           at /usr/local/go/src/encoding/json/decode.go:181:16              - encoding/json.Unmarshal
+                           at /usr/local/go/src/encoding/json/decode.go:108:20
+           9: 0x435e0 - (*omb-wasm/avro.Node).UnmarshalJSON
+                           at /home/rockwood/Workspace/tinygo-oob-memory-issue/avro/node.go:174:27              - (Go interface method)
+                           at <Go interface method>
           10: 0x484a2 - <unknown>!(*encoding/json.decodeState).object
-          11: 0x4102e - <unknown>!(*encoding/json.decodeState).value
-          12: 0x40cf2 - <unknown>!(*encoding/json.decodeState).value
-          13: 0x1a902 - <unknown>!encoding/json.Unmarshal
-          14: 0x435e0 - <unknown>!interface:{UnmarshalJSON:func:{slice:basic:uint8}{named:error}}.UnmarshalJSON$invoke
+          11: 0x4102e - (reflect.Value).Cap
+                           at /usr/local/go/src/encoding/json/decode.go:374:22              - (*encoding/json.decodeState).readIndex
+                           at /usr/local/go/src/encoding/json/decode.go:545:17              - (*encoding/json.decodeState).value
+                           at /usr/local/go/src/encoding/json/decode.go:388:53
+          12: 0x40cf2 - (reflect.Value).Kind
+                           at /usr/local/go/src/encoding/json/decode.go:555:21              - (*encoding/json.decodeState).array
+                           at /usr/local/go/src/encoding/json/decode.go:544:12              - (*encoding/json.decodeState).value
+                           at /usr/local/go/src/encoding/json/decode.go:364:21
+          13: 0x1a902 - (*encoding/json.decodeState).unmarshal
+                           at /usr/local/go/src/encoding/json/decode.go:181:16              - encoding/json.Unmarshal
+                           at /usr/local/go/src/encoding/json/decode.go:108:20
+          14: 0x435e0 - (*omb-wasm/avro.Node).UnmarshalJSON
+                           at /home/rockwood/Workspace/tinygo-oob-memory-issue/avro/node.go:174:27              - (Go interface method)
+                           at <Go interface method>
           15: 0x484a2 - <unknown>!(*encoding/json.decodeState).object
-          16: 0x4102e - <unknown>!(*encoding/json.decodeState).value
-          17: 0x1a902 - <unknown>!encoding/json.Unmarshal
-          18: 0x19aef - <unknown>!runtime.run$1
-          19: 0x18752 - <unknown>!runtime.run$1$gowrapper
-          20:  0x49e - <unknown>!tinygo_launch
-          21: 0x185fa - <unknown>!_start
-       note: using the `WASMTIME_BACKTRACE_DETAILS=1` environment variable may show more debugging information
+          16: 0x4102e - (reflect.Value).Cap
+                           at /usr/local/go/src/encoding/json/decode.go:374:22              - (*encoding/json.decodeState).readIndex
+                           at /usr/local/go/src/encoding/json/decode.go:545:17              - (*encoding/json.decodeState).value
+                           at /usr/local/go/src/encoding/json/decode.go:388:53
+          17: 0x1a902 - (*encoding/json.decodeState).unmarshal
+                           at /usr/local/go/src/encoding/json/decode.go:181:16              - encoding/json.Unmarshal
+                           at /usr/local/go/src/encoding/json/decode.go:108:20
+          18: 0x19aef - (*omb-wasm/avro.Interop).UnmarshalJSON
+                           at /home/rockwood/Workspace/tinygo-oob-memory-issue/avro/interop.go:531:27              - main.main
+                           at /home/rockwood/Workspace/tinygo-oob-memory-issue/parse.go:14:24              - runtime.run$1
+                           at /tinygo/src/runtime/scheduler_any.go:25:11
+          19: 0x18752 - <goroutine wrapper>
+                           at /tinygo/src/runtime/scheduler_any.go:23:2
+          20:  0x49e - tinygo_launch
+                           at /tinygo/src/internal/task/task_asyncify_wasm.S:59
+          21: 0x185fa - runtime.run
+                           at /tinygo/src/internal/task/task_asyncify.go:109:17              - _start
+                           at /tinygo/src/runtime/runtime_wasm_wasi.go:21:5
     2: wasm trap: wasm `unreachable` instruction executed
 optimization level: 2 scheduler: asyncify success: False
 wasm able to read json
